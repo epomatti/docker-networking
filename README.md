@@ -72,3 +72,30 @@ docker container run -dit \
   --publish 5000:8080 \
   nigelpoulton/pluralsight-docker-ci
 ```
+
+## Service Discovery
+
+```sh
+# Attachable overlay
+docker network create --driver overlay --attachable marvel
+```
+
+```sh
+docker service create --name shield \
+  --network marvel \
+  --replicas 3 \
+  nigelpoulton/k8sbook:shield01
+```
+
+```sh
+docker service ls
+```
+
+```
+docker network inspect marvel
+```
+
+Virtual IP (IP tables, IPVS) - load balancing
+
+
+cat /etc/resolv.conf
