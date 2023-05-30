@@ -56,3 +56,19 @@ ping -c 4 ctr4 # DNS will work with embedded DNS server
 
 ping -c 4 ctr1 # This won't, different bridge
 ```
+
+You can connect a container to multiple networks:
+
+```sh
+docker network connect ps-bridge ctr1
+```
+
+Publishing an app:
+
+```sh
+docker container run -dit \
+  --name web \
+  --network ps-bridge \
+  --publish 5000:8080 \
+  nigelpoulton/pluralsight-docker-ci
+```
