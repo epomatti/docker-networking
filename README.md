@@ -13,4 +13,8 @@ docker network inspect golden-gate
 
 # Disconnect
 docker network disconnect golden-gate sausalito
+
+# Clean up
+docker container rm sausalito -f
+docker network rm golden-gate
 ```
